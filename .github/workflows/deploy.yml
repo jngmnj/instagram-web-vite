@@ -1,3 +1,4 @@
+# Workflow
 name: Github Actions 실행시켜보기
 
 # 이 워크플로우는 main 브랜치에 푸시될 때마다 실행
@@ -6,6 +7,7 @@ on:
     branches:
       - main
 
+# Workflow는 여러개의 jobs로 이루어질 수 있음
 jobs:
   My-deploy-job:
     # ubuntu-latest: 최신 우분투 버전에서 실행
@@ -15,3 +17,10 @@ jobs:
     steps:
       - name: Hello World
         run: echo "Hello, World!"
+
+      - name: 여러 명령어 문장 작성하기
+        run: |
+          echo "Good"
+          echo "Morning"
+          pwd 
+          
