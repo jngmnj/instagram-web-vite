@@ -27,7 +27,7 @@ jobs:
           ls
 
       # AWS 리소스에 접근하기 위해 AWS 자격 증명을 설정
-      - name: AWS Resource
+      - name: AWS Resource에 접근할 수 있게 AWS 자격 증명 설정
         uses: aws-actions/configure-aws-credentials@v4
         with:
           aws-region: ap-northeast-2
@@ -35,6 +35,9 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
       - name: S3 기존 파일들 전체 삭제
+        # --recursive 옵션을 사용하여 S3 버킷에 있는 모든 파일을 재귀적으로 삭제
         run: |
           aws s3 rm --recursive s3://facebook-web-page3
-          aws s3 ls s3://facebook-web-page3
+
+      - name: S3에 빌드된 파일 업로드
+        run: aws s3 cp ./dist s3://facebook-web-page3/ --recursive 
