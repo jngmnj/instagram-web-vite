@@ -1,6 +1,17 @@
 name: Github Actions 실행시켜보기
 
+# 이 워크플로우는 main 브랜치에 푸시될 때마다 실행
 on:
   push:
     branches:
       - main
+
+jobs:
+  My-deploy-job:
+    # ubuntu-latest: 최신 우분투 버전에서 실행
+    runs-on: ubuntu-latest
+
+    # jobs 안에 steps가 들어감
+    steps:
+      - name: Hello World
+        run: echo "Hello, World!"
