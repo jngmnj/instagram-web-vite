@@ -41,3 +41,8 @@ jobs:
 
       - name: S3에 빌드된 파일 업로드
         run: aws s3 cp ./dist s3://facebook-web-page3/ --recursive 
+
+      - name: CloudFront 캐시 무효화
+        run: |
+          aws cloudfront create-invalidation --distribution-id E38X7E0K14AMD4 --paths "/*"
+        # E38X7E0K14AMD4는 CloudFront 배포 ID로, 실제 배포 ID로 변경해야 합니다.
