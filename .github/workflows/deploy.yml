@@ -17,4 +17,11 @@ jobs:
         # 불러온 파일 목록을 출력합니다.
         run: ls -la
 
-        
+      - name: 빌드하기
+        run: npm run build
+
+      - name: debugging
+        run: |
+          ls
+          cd dist
+          ls
