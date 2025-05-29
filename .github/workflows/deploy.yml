@@ -12,3 +12,9 @@ jobs:
       - name: Github Repository 파일 불러오기
         # 라이브러리 actions/checkout@v4를 사용하여 GitHub 저장소의 파일을 불러옵니다.
         uses: actions/checkout@v4
+
+      - name: Repository 파일 목록 출력
+        # 불러온 파일 목록을 출력합니다.
+        run: ls -la
+
+        
