@@ -22,5 +22,6 @@ jobs:
       - name: debugging
         run: |
           ls
+          echo "--------"
           cd dist
           ls
